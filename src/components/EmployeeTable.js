@@ -1,8 +1,15 @@
 import React from "react";
-import TableHead from "../components/TableHead";
+import EmployeeList from "./EmployeeList";
+import TableHead from "./TableHead";
 
 function EmployeeTable(props) {
-    return
+    return (
+        <table className="container text-center table bg-dark text-white mx-5  mt-3">
+            <TableHead />
+
+            <EmployeeList result={props.result} />
+        </table>
+    )
 }
 
 export default EmployeeTable;
