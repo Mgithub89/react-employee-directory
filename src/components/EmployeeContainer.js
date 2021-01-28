@@ -8,7 +8,8 @@ import EmployeeTable from "./EmployeeTable"
 class EmployeeContainer extends Component {
     state = {
         result: [],
-        search: ""
+        search: "",
+        isClicked: false
     }
 
     // when component mounts, make api call to populate UI
@@ -41,21 +42,43 @@ class EmployeeContainer extends Component {
     };
 
     handleSort = () => {
-        let arr = this.state.result;
-        arr.sort(function (a, b) {
-            let nameA = a.name.first.toUpperCase();
-            let nameB = b.name.first.toUpperCase();
-            if (nameA > nameB) {
-                return 1;
-            } else {
-                return -1;
-            }
 
-        })
-        this.setState({
-            results: arr
-        })
-    }
+        let arr = this.state.result;
+        if (!this.state.isClicked) {
+            arr.sort(function (a, b) {
+
+                let nameA = a.name.first.toUpperCase();
+                let nameB = b.name.first.toUpperCase();
+                if (nameA > nameB) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+
+            })
+            this.setState({
+                results: arr,
+                isClicked: true
+            })
+        } else {
+            arr.sort(function (a, b) {
+
+                let nameA = a.name.first.toUpperCase();
+                let nameB = b.name.first.toUpperCase();
+                if (nameA > nameB) {
+                    return -1;
+                } else {
+                    return 1;
+                }
+
+            })
+            this.setState({
+                results: arr,
+                isClicked: false
+            })
+
+        }
+    };
 
     render() {
         return (
