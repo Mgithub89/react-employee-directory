@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 import SearchForm from "./SearchForm";
-import TableHead from "./TableHead";
+
 import Api from "../utils/Api";
 import EmployeeTable from "./EmployeeTable"
-
-
-import EmployeeList from "./EmployeeList";
 
 class EmployeeContainer extends Component {
     state = {
@@ -43,6 +40,23 @@ class EmployeeContainer extends Component {
         this.searchMovies(this.state.search);
     };
 
+    handleSort = () => {
+        let arr = this.state.result;
+        arr.sort(function (a, b) {
+            let nameA = a.name.first.toUpperCase();
+            let nameB = b.name.first.toUpperCase();
+            if (nameA > nameB) {
+                return 1;
+            } else {
+                return -1;
+            }
+
+        })
+        this.setState({
+            results: arr
+        })
+    }
+
     render() {
         return (
             <div>
@@ -53,7 +67,7 @@ class EmployeeContainer extends Component {
                     handleFormSubmit={this.handleFormSubmit}
                 />
 
-                <EmployeeTable result={this.state.result} />
+                <EmployeeTable handleSort={this.handleSort} result={this.state.result} />
             </div>
         )
     }

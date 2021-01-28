@@ -1,11 +1,11 @@
 import React from "react";
 
 function EmployeeList(props) {
-
+    console.log(props.result)
     return (
         <tbody>
             {props.result.map(item => (
-                <tr key={item.login.salt} >
+                <tr key={item.login.uuid} >
                     <td><img alt={item.name.first} src={item.picture.thumbnail} /></td>
                     <td>{item.name.first} {item.name.last} </td>
                     <td>{item.cell}</td>

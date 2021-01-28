@@ -1,12 +1,12 @@
 
 import React from "react";
 
-function TableHead() {
+function TableHead(props) {
     return (
         <thead>
             <tr>
                 <th>Image</th>
-                <th>Name</th>
+                <th><button onClick={props.handleSort}>Name</button></th>
                 <th>Phone</th>
                 <th>Email</th>
                 <th>DOB</th>
