@@ -1,4 +1,5 @@
 import React from "react";
+import dayjs from "dayjs";
 
 function EmployeeList(props) {
     console.log(props.result)
@@ -10,7 +11,7 @@ function EmployeeList(props) {
                     <td>{item.name.first} {item.name.last} </td>
                     <td>{item.cell}</td>
                     <td>{item.email}</td>
-                    <td>{item.dob.date}</td>
+                    <td>{dayjs(item.dob.date).format("MM/DD/YYYY")}</td>
                 </tr>
             ))}
 
