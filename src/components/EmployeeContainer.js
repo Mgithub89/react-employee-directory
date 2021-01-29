@@ -33,6 +33,24 @@ class EmployeeContainer extends Component {
         this.setState({
             [name]: value
         });
+
+        let input = value.trim().toLocaleLowerCase();
+        let filtered = [];
+
+        if (input === "") {
+            filtered.length = 0;
+        } else {
+            filtered = this.state.result.filter(item => {
+                return (item.name.first.includes(input))
+
+            })
+        }
+
+        if (input === "" || filtered.length === 0) {
+            this.setState({ result: this.state.result });
+        } else {
+            this.setState({ result: filtered });
+        }
     };
 
     // When the form is submitted, search the OMDB API for the value of `this.state.search`
