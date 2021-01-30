@@ -5,7 +5,7 @@ Explore the [project-page](https://github.com/Mgithub89/react-employee-directory
 View the [Deloyed App](https://mgithub89.github.io/react-employee-directory/)
 
 ## Description
- Employee Directory application with react.
+ Employee Directory application with React.
  
 
 ## Table Of Contents 
